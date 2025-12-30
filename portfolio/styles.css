@@ -1,10 +1,8 @@
-/* --- 1. الألوان والأساسيات --- */
 :root {
     --bg: #0f172a;
     --text: #f8fafc;
     --accent: #38bdf8;
     --nav-bg: rgba(15, 23, 42, 0.9);
-    --card-bg: rgba(255, 255, 255, 0.05);
 }
 
 body.light-mode {
@@ -12,7 +10,6 @@ body.light-mode {
     --text: #0f172a;
     --accent: #0284c7;
     --nav-bg: rgba(248, 250, 252, 0.9);
-    --card-bg: rgba(0, 0, 0, 0.05);
 }
 
 body {
@@ -20,98 +17,51 @@ body {
     color: var(--text);
     margin: 0;
     font-family: 'Plus Jakarta Sans', sans-serif;
-    transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    line-height: 1.6;
-}
-
-/* --- 2. تصليح البار (الروابط ع سطر واحد) --- */
-.navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 5%;
-    background: var(--nav-bg);
-    backdrop-filter: blur(12px);
-    z-index: 1000;
-    box-sizing: border-box;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 25px;
-    margin: 0;
-}
-
-.nav-links a {
-    color: var(--text);
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 0.95rem;
     transition: 0.3s;
 }
 
-.nav-links a:hover {
-    color: var(--accent);
+.navbar {
+    position: fixed;
+    top: 0; width: 100%;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1rem 5%; background: var(--nav-bg); backdrop-filter: blur(10px);
+    z-index: 1000; box-sizing: border-box;
 }
 
-/* --- 3. تصليح السكاشن (أهم جزء عشان ميبوظوش) --- */
-section {
-    padding: 100px 10%; /* ده اللي هيعمل مسافة من فوق ومن الجناب */
-    min-height: auto;
-}
+.nav-links { display: flex; list-style: none; gap: 20px; }
+.nav-links a { color: var(--text); text-decoration: none; font-weight: 500; }
 
-.hero {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-top: 160px; /* مسافة زيادة لأول سكشن عشان البار */
-    gap: 40px;
-}
+.hero { padding: 150px 5% 50px; display: flex; align-items: center; justify-content: space-around; }
 
-.hero-content { flex: 1; }
-.hero-visual { flex: 1; display: flex; justify-content: center; }
+/* تنسيق الأيقونات الزجاجية */
+.contact-glass-grid { display: flex; gap: 15px; margin-top: 25px; }
 
-.profile-img {
-    width: 100%;
-    max-width: 380px;
-    border-radius: 50%; /* لو عاوزها دائرية زي السكرين */
-    filter: drop-shadow(0 0 20px var(--accent));
-    transition: 0.5s;
-}
-
-/* --- 4. تنسيق المشاريع والخبرة عشان يظهروا صح --- */
-.section-title {
-    font-size: 2rem;
-    margin-bottom: 45px;
-    border-left: 5px solid var(--accent);
-    padding-left: 15px;
-}
-
-.project-card, .skill-category {
-    background: var(--card-bg);
-    padding: 30px;
-    border-radius: 20px;
-    margin-bottom: 20px;
+.glass-icon-card {
+    width: 45px; height: 45px;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: var(--accent);
+    font-size: 1.2rem;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: 0.3s;
 }
 
-/* زرار الدارك مود */
-.theme-btn {
+.glass-icon-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px var(--accent);
     background: var(--accent);
     color: white;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 10px;
-    cursor: pointer;
 }
 
-/* استجابة الموبايل */
-@media (max-width: 768px) {
-    .hero { flex-direction: column-reverse; text-align: center; }
-    .nav-links { display: none; } /* هيختفي في الموبايل عشان ميبوظش الشكل */
+.profile-img {
+    max-width: 350px;
+    filter: drop-shadow(0 0 20px var(--accent));
+}
+
+.theme-btn {
+    background: none; border: 1px solid var(--accent); color: var(--accent);
+    cursor: pointer; padding: 5px 10px; border-radius: 8px;
 }
