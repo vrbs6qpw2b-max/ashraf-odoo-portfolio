@@ -32,7 +32,6 @@
         
         .profile-img { max-width: 320px; width: 100%; filter: drop-shadow(0 0 20px var(--accent)); border-radius: 50%; }
 
-        /* --- تصميم الكروت الجديد --- */
         .section { padding: 60px 8%; }
         .section-title { font-size: 1.8rem; margin-bottom: 30px; display: flex; align-items: center; gap: 10px; }
         .section-title::after { content: ''; height: 3px; width: 50px; background: var(--accent); border-radius: 2px; }
@@ -42,24 +41,23 @@
             border: 1px solid rgba(255,255,255,0.1); box-shadow: var(--card-shadow);
             display: flex; flex-direction: column; max-width: 450px; transition: 0.3s;
         }
-        .project-card:hover { transform: scale(1.02); }
-        .project-img-box { width: 100%; height: 200px; overflow: hidden; background: white; padding: 20px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; }
-        .project-img-box img {
-    width: 170%;            /* كبرنا النسبة من حجم البوكس */
-    height: 170%;           /* حافظنا على التناسب */
-    object-fit: contain;   /* عشان اللوجو ميتشدش ويبوظ أبعاده */
-    transition: 0.3s ease; /* حركة ناعمة لما تيجي عليه بالماوس */
-}
+        .project-card:hover { transform: translateY(-5px); }
 
-/* حركة إضافية تخلي اللوجو يكبر سيكة لما تقف عليه */
-.project-card:hover .project-img-box img {
-    transform: scale(1.1);
-}
+        /* ظبطنا مساحة الصورة هنا */
+        .project-img-box { width: 100%; height: 220px; overflow: hidden; background: white; padding: 15px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; }
+        .project-img-box img {
+            width: 95%; /* كبرناه بس من غير ما يخرج بره */
+            height: 95%;
+            object-fit: contain;
+            transition: 0.4s ease;
+        }
+        .project-card:hover .project-img-box img { transform: scale(1.08); }
+
         .project-info { padding: 25px; }
         .project-info h3 { margin: 0 0 10px; color: var(--accent); }
-        .project-info p { font-size: 0.9rem; opacity: 0.8; margin-bottom: 15px; }
+        .project-info p { font-size: 0.9rem; opacity: 0.8; margin-bottom: 8px; line-height: 1.5; }
         
-        .tags { display: flex; gap: 10px; flex-wrap: wrap; list-style: none; padding: 0; }
+        .tags { display: flex; gap: 10px; flex-wrap: wrap; list-style: none; padding: 0; margin-top: 15px; }
         .tags li { background: rgba(56, 189, 248, 0.1); color: var(--accent); padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; border: 1px solid var(--accent); }
 
         .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
@@ -72,7 +70,7 @@
 
         @media (max-width: 768px) {
             .hero { text-align: center; justify-content: center; padding-top: 120px; }
-            .nav-links { display: none; } /* إخفاء المنيو في الموبايل لعدم الزحمة */
+            .nav-links { display: none; }
             .contact-glass-grid { justify-content: center; }
         }
     </style>
@@ -111,15 +109,15 @@
               <img src="zad-logo.jpg.jpg" alt="ZAD Electric Logo">
             </div>
             <div class="project-info">
-                <h3>ZAD ELECTRIC </h3>
-                <p>Full implementation of ( accounting, inventory, sales and purchasing ) modules on Odoo Cloud.</p>
-                  <p>Preparing the chart of accounts.</p>
-                 <p>Raising opening balances and adjusting inventory and categories.</p>
-                <p>Training for 2 accountants.</p>
+                <h3>ZAD ELECTRIC</h3>
+                <p>• Full implementation of (accounting, inventory, sales and purchasing) modules on Odoo Cloud.</p>
+                <p>• Preparing the chart of accounts.</p>
+                <p>• Raising opening balances and adjusting inventory and categories.</p>
+                <p>• Training for 2 accountants.</p>
               
                 <ul class="tags">
-                    <li>Odoo V. 19</li>
-                    
+                    <li>Odoo V. 18</li>
+                    <li>ERP Implementation</li>
                 </ul>
             </div>
         </div>
@@ -141,12 +139,10 @@
                 <i class="fa-solid fa-calculator"></i>
                 <h3>Accounting</h3>
                 <ul class="skill-list">
-                    <li>A/P , A/R Management </li>
-                      <li>Bank Reconciliation</li>
+                    <li>A/P, A/R Management</li>
+                    <li>Bank Reconciliation</li>
                     <li>Tax Declarations</li>
-                  <li>Financial Statements</li>
-                      
-                    
+                    <li>Financial Statements</li>
                 </ul>
             </div>
         </div>
