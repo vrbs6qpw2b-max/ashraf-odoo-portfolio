@@ -1,14 +1,14 @@
-/* --- 1. الأساسيات والمتغيرات (إصلاح الألوان والخطوط) --- */
+/* --- 1. الأساسيات والمتغيرات (تطوير الألوان لتكون أعمق) --- */
 :root {
-    --bg-dark: #0f172a;
+    --bg-dark: #080d17;
     --bg-darker: #020617;
     --text-white: #f8fafc;
     --accent: #38bdf8;
-    --accent-glow: rgba(56, 189, 248, 0.2);
-    --glass-bg: rgba(30, 41, 59, 0.7);
-    --glass-border: rgba(255, 255, 255, 0.1);
-    --card-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-    --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --accent-glow: rgba(56, 189, 248, 0.3);
+    --glass-bg: rgba(15, 23, 42, 0.6);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --card-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 * {
@@ -16,295 +16,134 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Plus Jakarta Sans', sans-serif;
+    scroll-behavior: smooth;
 }
 
 body {
     background: var(--bg-dark);
+    background-image: 
+        radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.1) 0, transparent 50%), 
+        radial-gradient(at 100% 100%, rgba(56, 189, 248, 0.05) 0, transparent 50%);
     color: var(--text-white);
     line-height: 1.6;
     overflow-x: hidden;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 5%;
-}
-
-/* --- 2. الـ Navbar (إصلاح الهيدر) --- */
+/* --- 2. الـ Navbar (تصميم عائم) --- */
 .navbar {
     position: fixed;
-    top: 0;
-    width: 100%;
+    top: 20px; /* جعلها عائمة */
+    left: 5%;
+    right: 5%;
+    width: 90%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1.2rem 5%;
-    background: rgba(15, 23, 42, 0.8);
-    backdrop-filter: blur(10px);
+    padding: 1rem 2rem;
+    background: rgba(15, 23, 42, 0.7);
+    backdrop-filter: blur(15px);
     z-index: 1000;
-    border-bottom: 1px solid var(--glass-border);
-}
-
-.nav-links {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-    align-items: center;
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
 }
 
 .nav-links a {
     text-decoration: none;
     color: var(--text-white);
     font-weight: 500;
-    transition: 0.3s;
+    font-size: 0.95rem;
+    padding: 8px 15px;
+    transition: var(--transition);
 }
 
 .nav-links a:hover {
     color: var(--accent);
+    background: var(--accent-glow);
+    border-radius: 10px;
 }
 
-/* --- 3. سكشن الـ Hero (إصلاح منطقة التعريف) --- */
+/* --- 3. سكشن الـ Hero (إضافة الـ Glow لصورتك) --- */
 .hero {
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 100px 5% 0;
-}
-
-.hero-content {
-    flex: 1;
+    padding: 120px 5% 60px;
 }
 
 .hero-name {
-    font-size: 4rem;
+    font-size: 4.5rem;
+    line-height: 1.1;
+    background: linear-gradient(to right, #fff, var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     margin: 1rem 0;
-    font-family: 'Outfit', sans-serif;
 }
 
-.badge {
-    background: var(--accent-glow);
-    color: var(--accent);
-    padding: 5px 15px;
-    border-radius: 50px;
-    border: 1px solid var(--accent);
-    display: inline-block;
-}
-
-/* كروت التواصل الزجاجية */
-.contact-glass-grid {
-    display: flex;
-    gap: 15px;
-    margin-top: 30px;
-}
-
-.glass-icon-card {
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    border-radius: 15px;
-    padding: 15px;
-    width: 95px;
-    height: 100px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    color: white;
-    text-decoration: none;
-    box-shadow: var(--card-shadow);
-    transition: var(--transition);
-}
-
-.glass-icon-card:hover {
-    transform: translateY(-10px);
-    background: var(--accent);
-}
-
-.glass-icon-card i {
-    font-size: 1.8rem;
-}
-
-.glass-icon-card span {
-    font-size: 0.75rem;
-    font-weight: 600;
-}
-
-.hero-visual {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    position: relative;
-}
-
+/* تأثير الـ Glow حول صورتك الشفافة */
 .profile-img {
     width: 100%;
-    max-width: 450px;
+    max-width: 420px;
     position: relative;
     z-index: 2;
+    filter: drop-shadow(0 0 30px var(--accent-glow)); /* هذا السحر للصور الشفافة */
+    animation: float 6s ease-in-out infinite;
 }
 
-.glowing-gradient {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
-    filter: blur(50px);
-    z-index: 1;
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
 }
 
-/* --- 4. سكشن المشاريع (المربع والـ Shadow القوي) --- */
-#projects {
-    padding: 80px 0;
-    background: var(--bg-darker);
-}
-
-.section-title {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 50px;
-    color: var(--accent);
-}
-
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px;
-}
-
-/* ضبط كارت المشروع المربع */
+/* --- 4. كروت المشاريع (تأثير الزجاج الاحترافي) --- */
 .project-card {
     background: var(--glass-bg);
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    border-radius: 24px;
+    border: 1px solid var(--glass-border);
     transition: var(--transition);
-    border: 1px solid var(--glass-border);
-    display: flex;
-    flex-direction: column;
+    backdrop-filter: blur(10px);
 }
 
-/* منطقة اللوجو */
-.project-image {
-    background: #ffffff;
-    /* عشان لوجو زاد خلفيته بيضاء فيظهر مندمج */
-    height: 180px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-}
-
-.project-logo {
-    max-width: 90%;
-    /* عشان الصورة ما تخرجش بره المربع */
-    max-height: 90%;
-    object-fit: contain;
-}
-
-/* تأثير عند الوقوف على الكارت */
 .project-card:hover {
-    transform: translateY(-10px);
+    transform: translateY(-15px) scale(1.02);
     border-color: var(--accent);
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+    box-shadow: 0 0 40px var(--accent-glow);
 }
 
-/* إصلاح أي نصوص كانت باهتة في الصور */
-.project-info h3 {
-    color: var(--text-white);
-    margin-bottom: 10px;
-    font-size: 1.2rem;
+.project-image {
+    background: #fff; /* لوجو زاد هيبان كأنه كارت منفصل بداخل الزجاج */
+    height: 200px;
+    margin: 12px;
+    border-radius: 18px;
+    transition: var(--transition);
 }
 
-.project-info p {
-    color: #94a3b8;
-    font-size: 0.9rem;
+.project-card:hover .project-image {
+    transform: scale(0.95);
 }
 
-.tags {
-    display: flex;
-    gap: 8px;
-    list-style: none;
-    flex-wrap: wrap;
-}
-
-.tags li {
-    background: rgba(56, 189, 248, 0.1);
-    color: var(--accent);
-    padding: 4px 10px;
-    border-radius: 6px;
-    font-size: 0.75rem;
-}
-
-/* --- 5. باقي الأقسام (Skills, Services, About) --- */
-.section {
-    padding: 80px 0;
-}
-
-.bg-darker {
-    background: var(--bg-darker);
-}
-
-.text-center {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.skills-grid,
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-}
-
-.skill-category,
-.service-card {
+/* --- 5. المهارات (Skills) --- */
+.skill-category {
     background: var(--glass-bg);
-    padding: 2rem;
-    border-radius: 20px;
     border: 1px solid var(--glass-border);
-    box-shadow: var(--card-shadow);
+    padding: 2.5rem;
+    border-radius: 24px;
+    transition: var(--transition);
 }
 
-.skill-list {
-    list-style: none;
-    margin-top: 15px;
-}
-
-.skill-list li {
-    margin-bottom: 8px;
-    padding-left: 15px;
-    position: relative;
+.skill-category:hover {
+    background: rgba(30, 41, 59, 0.9);
+    border-color: var(--accent);
 }
 
 .skill-list li::before {
-    content: '→';
-    position: absolute;
-    left: 0;
+    content: '✦'; /* تغيير السهم لشكل أشيك */
+    margin-right: 10px;
     color: var(--accent);
 }
 
-.two-col {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    align-items: center;
-}
-
-footer {
-    text-align: center;
-    padding: 40px;
-    border-top: 1px solid var(--glass-border);
-    color: #64748b;
-}
-
-/* زرار الثيم */
-.theme-btn {
-    background: none;
-    border: 1px solid var(--glass-border);
-    color: var(--accent);
-    padding: 8px;
-    border-radius: 8px;
-    cursor: pointer;
+/* --- 6. الأزرار (Buttons) --- */
+.glass-icon-card {
+    border-radius: 20px;
+    background: linear-gradient(145deg, rgba(30, 41, 59, 0.4), rgba(15, 23, 42, 0.8));
 }
