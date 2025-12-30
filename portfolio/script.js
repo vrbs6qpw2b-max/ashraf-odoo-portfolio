@@ -1,22 +1,18 @@
-const themeToggle = document.getElementById('theme-toggle');
-const themeIcon = document.getElementById('theme-icon');
+const toggleBtn = document.getElementById('theme-toggle');
+const body = document.body;
 
-// تأكد إن الصفحة بتبدأ بالـ Dark Mode لو مفيش اختيار قديم
-if (localStorage.getItem('theme') === 'light') {
-    document.documentElement.setAttribute('data-theme', 'light');
-    themeIcon.classList.replace('fa-moon', 'fa-sun');
-}
-
-themeToggle.addEventListener('click', () => {
-    const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-
-    if (isLight) {
-        document.documentElement.removeAttribute('data-theme');
-        themeIcon.classList.replace('fa-sun', 'fa-moon');
-        localStorage.setItem('theme', 'dark');
-    } else {
-        document.documentElement.setAttribute('data-theme', 'light');
-        themeIcon.classList.replace('fa-moon', 'fa-sun');
+toggleBtn.addEventListener('click', () => {
+    body.classList.toggle('light-mode');
+    
+    // حفظ الاختيار في المتصفح عشان لما يعمل ريفريش ميرجعش قديم
+    if(body.classList.contains('light-mode')) {
         localStorage.setItem('theme', 'light');
+    } else {
+        localStorage.setItem('theme', 'dark');
     }
 });
+
+// تفعيل الثيم المحفوظ عند فتح الموقع
+if(localStorage.getItem('theme') === 'light') {
+    body.classList.add('light-mode');
+}
